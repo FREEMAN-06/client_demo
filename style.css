@@ -1,12 +1,15 @@
-/* Temel Ayarlar */
+/* =========================================
+   DARK PREMIUM TEMA - FREEMAN ENTERPRISES 
+   ========================================= */
 :root {
-    --bg-main: #f8f9fa;
-    --text-dark: #1a1a1a;
-    --text-muted: #6c757d;
-    --accent-red: #ff3366;
-    --accent-blue: #007bff;
-    --freeman-blue: #0a0e17; /* Freeman Marka Rengi */
-    --tag-bg: #e9ecef;
+    --bg-main: #0a0a0a; /* En arka plan - Simsiyah */
+    --bg-card: #161618; /* Kart arka planları - Lüks koyu gri */
+    --text-dark: #f5f5f7; /* Ana metinler - Kirli beyaz (Göz yormaz) */
+    --text-muted: #a1a1a6; /* Açıklama metinleri - Metalik gri */
+    --accent-red: #ff3366; /* Neon dokunuş (Demo butonu için) */
+    --freeman-blue: #1c1c1e; /* Header ve Footer için derin ton */
+    --tag-bg: #2c2c2e; /* Etiket arka planları */
+    --border-color: #333336; /* İnce jilet çizgiler için */
 }
 
 * {
@@ -16,7 +19,6 @@
     box-sizing: border-box;
 }
 
-/* TIKLA: Genel Resim Fixi (Dışarı Taşmayı Engeller) */
 img {
     max-width: 100%;
     height: auto;
@@ -32,7 +34,7 @@ body {
 /* Üst Bar (Header) */
 header {
     background-color: var(--freeman-blue);
-    color: white;
+    color: var(--text-dark);
     padding: 1.2rem 5%;
     display: flex;
     justify-content: space-between;
@@ -40,6 +42,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
 }
 
 header .logo {
@@ -49,7 +52,7 @@ header .logo {
 }
 
 header .logo span {
-    font-weight: 300; /* Freeman İnce Kısım */
+    font-weight: 300; 
 }
 
 header .demo-tag {
@@ -64,14 +67,14 @@ header .demo-tag {
 
 /* Hero Section */
 .hero {
-    background-color: white;
+    background-color: var(--bg-main);
     padding: 100px 5%;
     text-align: center;
 }
 
 .hero-content h1 {
     font-size: 2.8rem;
-    color: var(--freeman-blue);
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
@@ -91,38 +94,37 @@ header .demo-tag {
     justify-content: center;
 }
 
-/* Konsept Kartları Ana Kutusu - Daha Kompakt (YENİ HALİ) */
 .card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 16px; 
+    border: 1px solid var(--border-color); /* Lüks hissiyat için ince çerçeve */
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5); /* Siyah temada daha derin gölge */
     width: 100%;
     max-width: 750px; 
     margin: 0 auto 3rem auto;
     display: flex;
-    flex-direction: column; /* Üstte resim, altta yazı */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column; 
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-color: #555; /* Üzerine gelince çerçeve parlasın */
 }
 
-/* Resim Alanı - Yüksekliği Sınırlandırıldı (YENİ HALİ) */
+/* Resim Alanı */
 .card-image {
     width: 100%; 
     max-height: 360px; 
-    background-color: #f0f2f5;
-    border-bottom: 1px solid #eee;
+    background-color: #000; /* Resimlerin arkası tam siyah olsun */
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* Resmin Tamamı Görünsün (YENİ HALİ) */
 .card-image img {
     width: 100%;
     height: 100%;
@@ -131,7 +133,7 @@ header .demo-tag {
     object-fit: contain; 
 }
 
-/* İçerik / Yazı Alanı - Boşluklar Daraltıldı (YENİ HALİ) */
+/* İçerik / Yazı Alanı */
 .card-content {
     width: 100%;
     padding: 1.5rem 2rem; 
@@ -139,11 +141,10 @@ header .demo-tag {
     flex-direction: column;
 }
 
-/* Kart İçindeki Yazıların Boyutlarını Toparlayalım (YENİ HALİ) */
 .card-content h2 {
     font-size: 1.4rem; 
     margin-bottom: 0.8rem;
-    color: var(--freeman-blue);
+    color: var(--text-dark);
 }
 
 .vibe-tags {
@@ -152,7 +153,7 @@ header .demo-tag {
 
 .vibe-tags span {
     background-color: var(--tag-bg);
-    color: #495057;
+    color: #d1d1d6;
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -160,20 +161,21 @@ header .demo-tag {
     margin-right: 0.5rem;
     display: inline-block;
     margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
 }
 
 .description p {
     font-size: 0.95rem; 
     line-height: 1.5; 
     margin-bottom: 0.8rem;
-    color: #495057;
+    color: var(--text-muted);
 }
 
 .palette {
     display: flex;
     gap: 0.5rem;
     margin-top: auto;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-color);
     padding-top: 1rem; 
 }
 
@@ -181,7 +183,7 @@ header .demo-tag {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid #eee;
+    border: 1px solid #333; /* Siyah temada renklerin etrafındaki çizgi */
 }
 
 /* Renk Paleti Detayları */
@@ -189,20 +191,20 @@ header .demo-tag {
 .p-neon-blue { background-color: #00ffff; }
 .p-white { background-color: #ffffff; }
 
-.p-grey { background-color: #f0f2f5; }
-.p-accent-red { background-color: #ff3366; }
+.p-grey { background-color: #8e8e93; }
+.p-accent-red { background-color: #ff3b30; }
 
-.p-ink-black { background-color: #0a0a0a; }
-.p-paper-white { background-color: #f4f4f0; }
-.p-acid-pink { background-color: #ff0055; }
+.p-ink-black { background-color: #1c1c1e; }
+.p-paper-white { background-color: #f2f2f7; }
+.p-acid-pink { background-color: #ff2d55; }
 
-.p-sky-blue { background-color: #a18cd1; }
-.p-sunset-pink { background-color: #fecfef; }
-.p-accent-gold { background-color: #d4af37; }
+.p-sky-blue { background-color: #5ac8fa; }
+.p-sunset-pink { background-color: #ff2d55; }
+.p-accent-gold { background-color: #ffcc00; }
 
 /* Site İçeriği Bölümü */
 .content-breakdown {
-    background-color: white;
+    background-color: var(--bg-main);
     padding: 100px 5%;
 }
 
@@ -214,7 +216,7 @@ header .demo-tag {
 .content-breakdown h2 {
     font-size: 2.5rem;
     text-align: center;
-    color: var(--freeman-blue);
+    color: var(--text-dark);
     margin-bottom: 40px;
 }
 
@@ -233,16 +235,22 @@ header .demo-tag {
 }
 
 .content-breakdown li {
-    background-color: var(--bg-main);
+    background-color: var(--bg-card);
     width: calc(33.33% - 1rem);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.content-breakdown li:hover {
+    transform: translateY(-3px);
+    border-color: #555;
 }
 
 .content-breakdown li strong {
     font-size: 1.3rem;
-    color: var(--freeman-blue);
+    color: var(--text-dark);
     display: block;
     margin-bottom: 10px;
 }
@@ -250,10 +258,11 @@ header .demo-tag {
 /* Footer */
 footer {
     background-color: var(--freeman-blue);
-    color: white;
+    color: var(--text-muted);
     text-align: center;
     padding: 30px 5%;
     margin-top: 50px;
+    border-top: 1px solid var(--border-color);
 }
 
 /* ==========================================================
@@ -297,7 +306,7 @@ footer {
     }
 
    .card-image {
-        max-height: 250px; /* Mobilde resmi biraz daha daraltalım */
+        max-height: 250px;
     }
     
     .card-image img {
