@@ -91,15 +91,17 @@ header .demo-tag {
     justify-content: center;
 }
 
+/* Konsept Kartları Ana Kutusu - Daha Kompakt (YENİ HALİ) */
 .card {
     background: white;
-    border-radius: 20px;
+    border-radius: 16px; 
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     width: 100%;
-    max-width: 1300px;
-    margin-bottom: 2rem;
+    max-width: 750px; 
+    margin: 0 auto 3rem auto;
     display: flex;
+    flex-direction: column; /* Üstte resim, altta yazı */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -108,35 +110,44 @@ header .demo-tag {
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
+/* Resim Alanı - Yüksekliği Sınırlandırıldı (YENİ HALİ) */
 .card-image {
-    width: 60%;
+    width: 100%; 
+    max-height: 360px; 
+    background-color: #f0f2f5;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* RESİM FİXİ: Resmin tamamının görünmesini sağlar */
+/* Resmin Tamamı Görünsün (YENİ HALİ) */
 .card-image img {
     width: 100%;
-    height: auto; /* Yüksekliği otomatiğe aldık, resim bozulmaz */
+    height: 100%;
+    max-height: 360px;
     display: block;
-    object-fit: contain; /* Resmi kırpmaz, kutunun içine sığdırır */
-    background-color: #f0f2f5; /* Resim tam sığmazsa arkada boşluk kalmasın diye hafif gri dolgu */
+    object-fit: contain; 
 }
 
+/* İçerik / Yazı Alanı - Boşluklar Daraltıldı (YENİ HALİ) */
 .card-content {
-    width: 40%;
-    padding: 2.5rem;
+    width: 100%;
+    padding: 1.5rem 2rem; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
+/* Kart İçindeki Yazıların Boyutlarını Toparlayalım (YENİ HALİ) */
 .card-content h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem; 
+    margin-bottom: 0.8rem;
     color: var(--freeman-blue);
-    margin-bottom: 1rem;
 }
 
 .vibe-tags {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .vibe-tags span {
@@ -152,9 +163,10 @@ header .demo-tag {
 }
 
 .description p {
-    font-size: 1.05rem;
+    font-size: 0.95rem; 
+    line-height: 1.5; 
+    margin-bottom: 0.8rem;
     color: #495057;
-    margin-bottom: 1rem;
 }
 
 .palette {
@@ -162,7 +174,7 @@ header .demo-tag {
     gap: 0.5rem;
     margin-top: auto;
     border-top: 1px solid #eee;
-    padding-top: 1.5rem;
+    padding-top: 1rem; 
 }
 
 .color {
@@ -248,12 +260,10 @@ footer {
    MOBİL VE TABLET UYUMLULUK RESETERİ (RESPONSIVE RULES)
    ========================================================== */
 @media (max-width: 768px) {
-    /* Genel body metin boyutu ayarlaması */
     body {
         font-size: 14px;
     }
 
-    /* Üst Bar (Header) mobil ayarlaması */
     header {
         flex-direction: column;
         gap: 1rem;
@@ -265,82 +275,54 @@ footer {
         font-size: 1.3rem;
     }
 
-    /* Ana Başlık (Hero) section padding ve metin boyutu */
     .hero {
         padding: 60px 5%;
     }
 
     .hero-content h1 {
-        font-size: 2rem; /* Başlık boyutunu küçült */
+        font-size: 2rem; 
     }
 
     .hero-content p {
         font-size: 1.1rem;
     }
 
-    /* Katalog kartları mobilde ızgara yerine tek sütun olarak üst üste yığılacak */
     .catalog {
         padding: 30px 5%;
     }
 
-    /* RESULÜTLÜK FİXİ: Kartları mobilde dikey yapıyoruz */
     .card {
-        flex-direction: column; /* Üst üste stacking */
-        width: 100%;
-        max-width: 100%;
+        border-radius: 12px; 
         margin-bottom: 1.5rem;
-        border-radius: 12px; /* Mobilde daha yumuşak köşeler */
-        overflow: hidden;
     }
 
-    /* Resim kısmını tam genişlik yap */
-  /* MOBİL RESİM ALANI: Kısıtlamaları kaldırdık */
    .card-image {
-        width: 100%;
-        aspect-ratio: 16 / 9; /* Tüm resim kutularını 16:9 formatına zorlar */
-        background: #f0f2f5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        max-height: 250px; /* Mobilde resmi biraz daha daraltalım */
     }
     
     .card-image img {
-        max-height: 100%;
-        width: auto;
-        object-fit: contain;
+        max-height: 250px;
     }
 
-    /* Metin kısmını tam genişlik yap ve iç padding'i ayarla */
     .card-content {
-        width: 100%;
         padding: 1.5rem;
     }
 
     .card-content h2 {
-        font-size: 1.5rem; /* Küçültülmüş kart başlığı */
+        font-size: 1.3rem; 
     }
 
-    /* Vibe etiketlerini (Tags) fixliyoruz - wrapping sorunu buradaydı */
     .vibe-tags {
         display: flex;
-        flex-wrap: wrap; /* Etiketler dikey yığılmak yerine yan yana wrapping yapsın */
-        margin-bottom: 0.75rem;
-        gap: 0.25rem; /* Etiketler arası çok ufak bir boşluk */
+        flex-wrap: wrap; 
+        gap: 0.25rem; 
     }
 
-    /* Etiket span'lerinin mobildeki yığılma marginlerini temizle */
     .vibe-tags span {
         margin-right: 0;
         margin-bottom: 0.5rem;
     }
 
-    /* Açıklama metni boyutu ve spacing */
-    .description p {
-        font-size: 0.95rem;
-        margin-bottom: 0.75rem;
-    }
-
-    /* Site İçeriği section'ındaki listeyi tek sütun yapıyoruz */
     .content-breakdown ul {
         flex-direction: column;
         gap: 1rem;
