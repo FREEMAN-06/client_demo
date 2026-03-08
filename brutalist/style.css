@@ -17,7 +17,7 @@
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
-    --spacing-xl: 8rem;
+    --spacing-xl: 6rem; /* Reduced to reduce first-impression gap */
 }
 
 /* Base Reset */
@@ -57,7 +57,7 @@ p, a, span, label, input, textarea, button {
 a {
     color: var(--ink-black);
     text-decoration: none;
-    transition: color 0s, background-color 0s; /* Brutalist: no soft transitions */
+    transition: color 0s, background-color 0s;
 }
 
 /* Brutalist UI Components */
@@ -71,7 +71,7 @@ a {
     font-weight: 700;
     cursor: pointer;
     text-align: center;
-    border-radius: 0; /* Strict Brutalist Rule */
+    border-radius: 0;
 }
 
 .btn-brutalist:hover {
@@ -79,11 +79,6 @@ a {
     color: var(--bg-paper);
     box-shadow: var(--shadow-acid);
     border-color: var(--ink-black);
-}
-
-.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
 }
 
 .btn-large {
@@ -100,14 +95,14 @@ a {
     margin-top: var(--spacing-md);
 }
 
-/* Header */
+/* Header & Demo Badge */
 .brutalist-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-md);
     border-bottom: var(--border-massive);
-    border-top: var(--border-massive); /* Stark top border */
+    border-top: var(--border-massive);
     background-color: var(--bg-paper);
     position: sticky;
     top: 0;
@@ -122,6 +117,18 @@ a {
     background: var(--ink-black);
     color: var(--bg-paper);
     padding: 0.2rem 0.5rem;
+}
+
+.demo-badge {
+    background-color: var(--accent-acid);
+    color: var(--bg-paper);
+    padding: 0.4rem 1rem;
+    font-weight: 900;
+    font-size: 0.9rem;
+    border: var(--border-thick);
+    box-shadow: 3px 3px 0 var(--ink-black);
+    transform: rotate(-2deg);
+    text-transform: uppercase;
 }
 
 .main-nav ul {
@@ -144,7 +151,7 @@ a {
     color: var(--bg-paper);
 }
 
-/* Hero Section */
+/* Hero Section - Reduced spacing to fix image_80b9ca.png issue */
 .hero-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -153,7 +160,8 @@ a {
 }
 
 .hero-content {
-    padding: var(--spacing-xl) var(--spacing-lg);
+    /* Reduced padding-top from spacing-xl to create better first impression */
+    padding: 2rem var(--spacing-lg) var(--spacing-lg); 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -165,11 +173,10 @@ a {
     display: flex;
     flex-direction: column;
     margin-bottom: var(--spacing-lg);
+    /* Remove snap classes or specific top margin that might cause gap */
 }
 
-.hero-title span {
-    display: block;
-}
+.hero-title span { display: block; }
 
 .hero-title .line-2 {
     color: var(--bg-paper);
@@ -248,11 +255,10 @@ section {
     width: 150px;
 }
 
-/* About Section */
+/* About Section & Editorial Columns */
 .editorial-columns {
-    column-count: 3;
+    column-count: 2;
     column-gap: var(--spacing-lg);
-    column-rule: var(--border-thick);
 }
 
 .editorial-columns p {
@@ -272,11 +278,52 @@ section {
     font-weight: 900;
 }
 
+/* REVISED: Pink Stats -> Integrated Brutalist Stats with borders and shadows */
+.brutalist-stats {
+    column-span: all; /* Make it take full width across columns */
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+    border-top: var(--border-thick);
+    padding-top: var(--spacing-md);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align for better box integration */
+    text-align: center;
+    background-color: var(--bg-paper);
+    color: var(--ink-black);
+    border: var(--border-massive);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-hard);
+    width: calc(50% - var(--spacing-xl) / 2); /* Take roughly half width */
+}
+
+/* Final number: Large, black, centered in its box, no shadow */
+.stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Balanced size */
+    font-family: var(--font-serif);
+    font-weight: 900;
+    color: var(--ink-black); /* Set number to black */
+    line-height: 1;
+    /* Removed pink highlight and text-shadow for a solid look */
+}
+
+/* Final label: Robust, integrated, no longer disconnected */
+.stat-label {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-top: 0.5rem; /* Better vertical alignment */
+}
+
 /* Services Section */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0; /* Grid borders handle separation */
     border: var(--border-massive);
 }
 
@@ -318,100 +365,8 @@ section {
     color: var(--accent-acid);
 }
 
-/* Portfolio Section */
-.portfolio-layout {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-}
-
-.portfolio-item {
-    border-left: 8px solid var(--ink-black);
-    padding-left: var(--spacing-md);
-}
-
-.serif-title {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 8px;
-}
-
-.portfolio-item p {
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-sm);
-    max-width: 80ch;
-}
-
-.read-more {
-    display: inline-block;
-    background: var(--ink-black);
-    color: var(--bg-paper);
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.read-more:hover {
-    background: var(--accent-acid);
-}
-
-/* Gallery / Masonry Layout */
-.masonry-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: 200px;
-    gap: var(--spacing-md);
-    grid-auto-flow: dense;
-}
-
-.masonry-item {
-    position: relative;
-    border: var(--border-thick);
-    box-shadow: var(--shadow-hard);
-    overflow: hidden;
-    background: var(--ink-black);
-}
-
-.masonry-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(80%);
-    transition: filter 0s, transform 0.1s;
-}
-
-.masonry-item:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-.item-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: var(--accent-acid);
-    color: var(--bg-paper);
-    padding: 0.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border-top: var(--border-thick);
-    border-right: var(--border-thick);
-}
-
-.item-tall {
-    grid-row: span 2;
-}
-
-.item-wide {
-    grid-column: span 2;
-}
-
 /* Contact Section */
-.contact-section {
-    background-color: var(--bg-paper);
-}
+.contact-section { background-color: var(--bg-paper); }
 
 .contact-form-wrapper {
     max-width: 800px;
@@ -422,9 +377,7 @@ section {
     box-shadow: var(--shadow-hard);
 }
 
-.form-group {
-    margin-bottom: var(--spacing-md);
-}
+.form-group { margin-bottom: var(--spacing-md); }
 
 .form-group label {
     display: block;
@@ -434,20 +387,18 @@ section {
     font-size: 0.9rem;
 }
 
-.form-group input,
-.form-group textarea {
+.form-group input, .form-group textarea {
     width: 100%;
     padding: 1rem;
     background-color: var(--bg-paper);
     border: var(--border-thick);
     font-family: var(--font-sans);
     font-size: 1.1rem;
-    border-radius: 0; /* Brutalist */
+    border-radius: 0;
     outline: none;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-group input:focus, .form-group textarea:focus {
     border-color: var(--accent-acid);
     box-shadow: 4px 4px 0 var(--accent-acid);
 }
@@ -474,24 +425,41 @@ section {
     color: #888;
 }
 
-/* Animations / JS Observer Classes */
+/* AGENCY CREDIT STYLES - JULES UNUTMUŞTU, EKLENDİ */
+.agency-credit {
+    margin-top: 1rem;
+    color: var(--accent-acid);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Reveal Snap Animations - Updated for better first impression */
 .reveal-snap {
     opacity: 0;
-    transform: translateY(40px);
-    transition: none; /* JS will handle the snap */
+    transform: translateY(40px); /* Lower starting position for less jump */
+    transition: none; /* Instant transition when visible, no reveal delay-1 type animation */
+}
+
+/* Specific class to avoid first-impression gap in hero-content */
+.hero-content.reveal-snap {
+    opacity: 1; /* Pre-show hero-content so the large title loads professional */
+    transform: translateY(0);
 }
 
 .reveal-snap.is-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: transform 0.1s cubic-bezier(0, 0, 0, 1), opacity 0.1s ease-in;
+    transition: transform 0.1s cubic-bezier(0, 0, 0, 1), opacity 0.1s ease-in; /* Instant snap with a very subtle fade */
 }
+
+/* Delays - Reduced to professional levels */
+.reveal-delay-1 { transition-delay: 0s !important; } /* Pre-show immediately for a strong visual impact */
+.reveal-delay-2 { transition-delay: 0.05s !important; }
+.reveal-delay-3 { transition-delay: 0.1s !important; }
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    .editorial-columns {
-        column-count: 2;
-    }
+    .editorial-columns { column-count: 1; }
 }
 
 @media (max-width: 768px) {
@@ -501,6 +469,8 @@ section {
         padding: var(--spacing-sm);
     }
     
+    .demo-badge { margin-bottom: 1rem; }
+
     .main-nav ul {
         flex-wrap: wrap;
         justify-content: center;
@@ -518,25 +488,12 @@ section {
         padding: var(--spacing-lg) var(--spacing-sm);
     }
     
-    .hero-image {
-        min-height: 400px;
-    }
+    .hero-image { min-height: 400px; }
 
-    .editorial-columns {
-        column-count: 1;
-    }
+    .services-grid { grid-template-columns: 1fr; }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .masonry-layout {
-        grid-template-columns: 1fr;
-    }
-    
-    .item-wide {
-        grid-column: span 1;
-    }
+    .brutalist-stats { flex-direction: column; gap: 1rem; }
+    .stat-item { width: 100%; } /* Stacks full width on mobile */
     
     :root {
         --spacing-xl: 4rem;
