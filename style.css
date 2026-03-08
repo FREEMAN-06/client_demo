@@ -112,10 +112,13 @@ header .demo-tag {
     width: 60%;
 }
 
+/* RESİM FİXİ: Resmin tamamının görünmesini sağlar */
 .card-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* Yüksekliği otomatiğe aldık, resim bozulmaz */
+    display: block;
+    object-fit: contain; /* Resmi kırpmaz, kutunun içine sığdırır */
+    background-color: #f0f2f5; /* Resim tam sığmazsa arkada boşluk kalmasın diye hafif gri dolgu */
 }
 
 .card-content {
@@ -291,9 +294,20 @@ footer {
     }
 
     /* Resim kısmını tam genişlik yap */
-    .card-image {
+  /* MOBİL RESİM ALANI: Kısıtlamaları kaldırdık */
+   .card-image {
         width: 100%;
-        height: 250px; /* Mobilde sabit bir yükseklik */
+        aspect-ratio: 16 / 9; /* Tüm resim kutularını 16:9 formatına zorlar */
+        background: #f0f2f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .card-image img {
+        max-height: 100%;
+        width: auto;
+        object-fit: contain;
     }
 
     /* Metin kısmını tam genişlik yap ve iç padding'i ayarla */
