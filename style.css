@@ -1,0 +1,236 @@
+/* Temel Ayarlar */
+:root {
+    --bg-main: #f8f9fa;
+    --text-dark: #1a1a1a;
+    --text-muted: #6c757d;
+    --accent-red: #ff3366;
+    --accent-blue: #007bff;
+    --freeman-blue: #0a0e17; /* Freeman Marka Rengi */
+    --tag-bg: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Üst Bar (Header) */
+header {
+    background-color: var(--freeman-blue);
+    color: white;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+header .logo span {
+    font-weight: 300; /* Freeman İnce Kısım */
+}
+
+header .demo-tag {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 50px;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: white;
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: var(--freeman-blue);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Konsept Kartları Bölümü */
+.catalog {
+    padding: 50px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 1300px;
+    margin-bottom: 2rem;
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    width: 60%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    width: 40%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h2 {
+    font-size: 1.8rem;
+    color: var(--freeman-blue);
+    margin-bottom: 1rem;
+}
+
+.vibe-tags {
+    margin-bottom: 1.5rem;
+}
+
+.vibe-tags span {
+    background-color: var(--tag-bg);
+    color: #495057;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.description p {
+    font-size: 1.05rem;
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+.palette {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+/* Renk Paleti Detayları */
+.p-neon-pink { background-color: #ff00ff; }
+.p-neon-blue { background-color: #00ffff; }
+.p-white { background-color: #ffffff; }
+
+.p-grey { background-color: #f0f2f5; }
+.p-accent-red { background-color: #ff3366; }
+
+.p-ink-black { background-color: #0a0a0a; }
+.p-paper-white { background-color: #f4f4f0; }
+.p-acid-pink { background-color: #ff0055; }
+
+.p-sky-blue { background-color: #a18cd1; }
+.p-sunset-pink { background-color: #fecfef; }
+.p-accent-gold { background-color: #d4af37; }
+
+/* Site İçeriği Bölümü */
+.content-breakdown {
+    background-color: white;
+    padding: 100px 5%;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-breakdown h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--freeman-blue);
+    margin-bottom: 40px;
+}
+
+.content-breakdown p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+.content-breakdown ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.content-breakdown li {
+    background-color: var(--bg-main);
+    width: calc(33.33% - 1rem);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.content-breakdown li strong {
+    font-size: 1.3rem;
+    color: var(--freeman-blue);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--freeman-blue);
+    color: white;
+    text-align: center;
+    padding: 30px 5%;
+    margin-top: 50px;
+}
