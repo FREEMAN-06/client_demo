@@ -500,3 +500,44 @@ section {
         --spacing-lg: 2rem;
     }
 }
+
+/* YENİ LOKASYON KUTUCUKLARI (Brutalist Vibe Tags) */
+.local-seo-box {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--accent-acid);
+    border: var(--border-massive);
+    box-shadow: var(--shadow-hard);
+}
+
+.seo-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: var(--ink-black);
+}
+
+.seo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.seo-tag {
+    background-color: var(--bg-paper);
+    color: var(--ink-black);
+    border: var(--border-thick);
+    padding: 0.5rem 1.2rem;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: 4px 4px 0 var(--ink-black);
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.seo-tag:hover {
+    background-color: var(--ink-black);
+    color: var(--bg-paper);
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 var(--ink-black);
+}

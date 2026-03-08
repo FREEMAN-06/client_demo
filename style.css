@@ -347,3 +347,14 @@ footer {
         font-size: 1.2rem;
     }
 }
+a {
+    text-decoration: none;  /* Alt çizgiyi siler */
+    color: inherit;         /* Mavi yerine bulunduğu yerin rengini alır */
+    cursor: pointer;        /* El işaretinin çıkmasını garantiye alır */
+}
+
+a:hover {
+    text-decoration: underline; /* Üzerine gelince altı çizilir */
+    opacity: 0.8;               /* Hafif şeffaflaşarak tıklandığı hissini verir */
+    color: red;
+}

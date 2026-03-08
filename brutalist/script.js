@@ -63,7 +63,16 @@ class BrutalistReveal {
 // EnsureFiveServerRunning(); // Check local development path on startup
 
 // Initialize Brutalist Reveal effect on DOMContentLoaded
+// Initialize Brutalist Reveal effect on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     // Custom threshold option used here for specific brutally fast interaction
     new BrutalistReveal({ threshold: 0.05 });
+
+    // --- EKSİK KALAN SONSUZLUK MOTORU (MARQUEE FİX) ---
+    const marqueeContainer = document.querySelector('.marquee');
+    if (marqueeContainer) {
+        const marqueeText = marqueeContainer.innerHTML;
+        // Metni ultra geniş ekranlar için 5 katına çıkarıyoruz, asla bitmez!
+        marqueeContainer.innerHTML = marqueeText + marqueeText + marqueeText + marqueeText + marqueeText;
+    }
 });
